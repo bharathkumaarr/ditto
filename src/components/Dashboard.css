@@ -1,0 +1,68 @@
+.dashboard {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.dashboard-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.metric-change {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.875rem;
+}
+
+.metric-change.positive {
+    color: #10b981;
+}
+
+.metric-change.negative {
+    color: #ef4444;
+}
+
+.chart-container {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 16px;
+}

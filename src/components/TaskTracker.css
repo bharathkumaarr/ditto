@@ -1,0 +1,90 @@
+.task-tracker {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.tracker-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.kanban-column {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 12px;
+    min-height: 200px;
+}
+
+.column-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 12px;
+    text-transform: capitalize;
+    color: #888;
+    font-size: 0.875rem;
+}
+
+.task-count {
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+}
+
+.column-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.task-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.task-title {
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+.task-priority {
+    align-self: flex-start;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000;
+}
