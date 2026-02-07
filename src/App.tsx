@@ -1,11 +1,22 @@
+import { useState, useEffect } from 'react'
 import { useTamboThread, useTamboThreadInput } from '@tambo-ai/react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Sparkles, Send, Loader2 } from 'lucide-react'
+import { Sparkles, Send, Loader2, Sun, Moon } from 'lucide-react'
 import './App.css'
 
 function App() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const { thread } = useTamboThread()
   const { value, setValue, submit, isPending } = useTamboThreadInput()
+
+  // Apply theme to document
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light')
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -18,6 +29,15 @@ function App() {
     <div className="app">
       {/* Background gradient */}
       <div className="bg-gradient" />
+
+      {/* Theme Toggle Button - Top Right */}
+      <button
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      >
+        {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+      </button>
 
       {/* Header */}
       <header className="header">
