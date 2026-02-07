@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion'
-import { StickyNote } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { StickyNote, Sparkles } from 'lucide-react'
+import { useState } from 'react'
 import './NotesPanel.css'
 
 interface Note {
@@ -21,6 +22,8 @@ const noteColors = {
 }
 
 export function NotesPanel({ title, notes }: NotesPanelProps) {
+    const [hoveredNote, setHoveredNote] = useState<string | null>(null)
+
     return (
         <motion.div
             className="notes-panel"
@@ -63,8 +66,28 @@ export function NotesPanel({ title, notes }: NotesPanelProps) {
                                     }
                                 }))
                             }}
+                            onMouseEnter={() => setHoveredNote(note.id)}
+                            onMouseLeave={() => setHoveredNote(null)}
                         >
                             <p className="note-content">{note.content}</p>
+
+                            <div className="note-sparkle">
+                                <Sparkles size={14} />
+                            </div>
+
+                            <AnimatePresence>
+                                {hoveredNote === note.id && (
+                                    <motion.div
+                                        className="note-tooltip"
+                                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: 5, scale: 0.9 }}
+                                    >
+                                        <div className="tooltip-badge">Tambo AI</div>
+                                        <p>Drag to the bottom zone to transform this note into a structured workflow.</p>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </motion.div>
                     )
                 })}

@@ -50,29 +50,22 @@ function App() {
   useEffect(() => {
     const handleDragStart = () => setIsDraggingNote(true)
     const handleDragEnd = (e: any) => {
+      const { content, point } = e.detail
+
+      // Check if dropped within the bottom 25% of the screen (where the zone is fixed)
+      const thresholdY = window.innerHeight * 0.75
+      const droppedInside = point.y > thresholdY
+
       setIsDraggingNote(false)
       setIsOverDropZone(false)
 
-      const { content, point } = e.detail
-
-      // Check if dropped within drop zone bounds
-      if (dropZoneRef.current) {
-        const rect = dropZoneRef.current.getBoundingClientRect()
-        const isInside = (
-          point.x >= rect.left &&
-          point.x <= rect.right &&
-          point.y >= rect.top &&
-          point.y <= rect.bottom
-        )
-
-        if (isInside) {
-          const prompt = `Convert this note into a structured kanban workflow: "${content}"`
-          setValue(prompt)
-          // Use a small delay to ensure value is set before submitting
-          setTimeout(() => {
-            submit()
-          }, 50)
-        }
+      if (droppedInside) {
+        const prompt = `Convert this note into a structured kanban workflow: "${content}"`
+        setValue(prompt)
+        // Ensure the input value state has propagated before submitting
+        setTimeout(() => {
+          submit()
+        }, 150)
       }
     }
 

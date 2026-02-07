@@ -45,8 +45,16 @@
     border-radius: 12px;
     padding: 16px;
     min-height: 120px;
-    cursor: pointer;
+    cursor: grab;
     transition: all 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.note-card:active {
+    cursor: grabbing;
 }
 
 .note-content {
@@ -54,4 +62,53 @@
     font-size: 0.9rem;
     line-height: 1.5;
     white-space: pre-wrap;
+    pointer-events: none;
+}
+
+.note-sparkle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: var(--accent-primary);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.note-card:hover .note-sparkle {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.note-tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-secondary);
+    border: 1px solid var(--accent-primary);
+    border-radius: 12px;
+    padding: 12px;
+    width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.tooltip-badge {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.note-tooltip p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    line-height: 1.4;
 }
