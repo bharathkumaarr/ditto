@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useTamboThread, useTamboThreadInput } from '@tambo-ai/react'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
 import { Sparkles, Send, Loader2, Sun, Moon, Command, Wand2, Plus } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
 import './App.css'
 
 function App() {
@@ -227,11 +228,15 @@ function App() {
                         {Array.isArray(message.content) ? (
                           message.content.map((part, i) =>
                             part.type === 'text' ? (
-                              <p key={i} className="ai-text">{part.text}</p>
+                              <div key={i} className="ai-text">
+                                <ReactMarkdown>{part.text}</ReactMarkdown>
+                              </div>
                             ) : null
                           )
                         ) : (
-                          <p className="ai-text">{String(message.content)}</p>
+                          <div className="ai-text">
+                            <ReactMarkdown>{String(message.content)}</ReactMarkdown>
+                          </div>
                         )}
                       </div>
                     )}
