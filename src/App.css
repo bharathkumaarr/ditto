@@ -55,6 +55,12 @@
   z-index: 10;
 }
 
+/* Logo Container with Tooltip */
+.logo-container {
+  position: relative;
+  cursor: pointer;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -65,10 +71,49 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transition: transform 0.2s ease;
 }
 
 .logo-icon {
   color: var(--accent-primary);
+}
+
+/* Logo Tooltip */
+.logo-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 100;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+}
+
+.logo-container:hover .logo-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(12px);
+}
+
+.tooltip-title {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tooltip-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
 }
 
 .tagline {
