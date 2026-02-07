@@ -162,9 +162,9 @@ function App() {
           <div className="suggestions">
             <span className="suggestion-label">Try:</span>
             {[
-              "Track my job applications",
+              "Plan my tasks for this week",
               "Help me focus",
-              "Show my productivity stats"
+              "Brainstorm startup ideas"
             ].map((suggestion) => (
               <button
                 key={suggestion}
