@@ -5,6 +5,7 @@ import { Dashboard } from '../components/Dashboard'
 import { TaskTracker } from '../components/TaskTracker'
 import { FocusMode } from '../components/FocusMode'
 import { NotesPanel } from '../components/NotesPanel'
+import { Timer } from '../components/Timer'
 
 // Dashboard Schema - more flexible with defaults
 const DashboardSchema = z.object({
@@ -52,6 +53,13 @@ const NotesPanelSchema = z.object({
     })).default([])
 })
 
+// Timer Schema
+const TimerSchema = z.object({
+    type: z.enum(['timer', 'stopwatch']).default('timer'),
+    durationInSeconds: z.number().describe('Duration in seconds. Calculate this correctly (e.g., 2 minutes = 120, 5 minutes = 300).').default(60),
+    label: z.string().describe('Short label for what the timer is for (e.g., "Boiling Eggs").').default('Timer')
+})
+
 // Register all components
 export const dittoComponents = [
     {
@@ -77,5 +85,11 @@ export const dittoComponents = [
         description: 'Notes and ideas board. Use when user wants to take notes, brainstorm, jot down ideas, or keep reminders.',
         component: NotesPanel,
         propsSchema: NotesPanelSchema
+    },
+    {
+        name: 'Timer',
+        description: 'Countdown timer or stopwatch. Use when the user wants to set a timer, start a countdown, use a stopwatch, or track time for an activity.',
+        component: Timer,
+        propsSchema: TimerSchema
     }
 ]

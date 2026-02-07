@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTamboThread, useTamboThreadInput } from '@tambo-ai/react'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
-import { Sparkles, Send, Loader2, Sun, Moon, Command, Wand2 } from 'lucide-react'
+import { Sparkles, Send, Loader2, Sun, Moon, Command, Wand2, Plus } from 'lucide-react'
 import './App.css'
 
 function App() {
@@ -105,6 +105,14 @@ function App() {
     }
   }
 
+  const handleNewChat = () => {
+    window.location.reload()
+  }
+
+  const handleGoHome = () => {
+    window.location.reload()
+  }
+
   // Auto-scroll logic
   useEffect(() => {
     if (thread?.messages?.length || isPending) {
@@ -113,23 +121,35 @@ function App() {
   }, [thread?.messages?.length, isPending])
 
   return (
-    <div className="app">
+    <div className={`app ${isDraggingNote ? 'dragging-note' : ''}`}>
       {/* Background gradient */}
       <div className="bg-gradient" />
 
-      {/* Theme Toggle Button - Top Right */}
-      <button
-        className="theme-toggle"
-        onClick={toggleTheme}
-        aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-      >
-        {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-      </button>
+      {/* Top Controls */}
+      <div className="top-controls">
+        <button
+          className="new-chat-btn"
+          onClick={handleNewChat}
+          aria-label="New Chat"
+        >
+          <Plus size={20} />
+          <span>New Chat</span>
+        </button>
+
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        >
+          {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+        </button>
+      </div>
 
       {/* Header */}
       <header className="header">
         <motion.div
-          className="logo"
+          className="logo clickable"
+          onClick={handleGoHome}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -329,9 +349,10 @@ function App() {
           <div className="suggestions">
             <span className="suggestion-label">Try:</span>
             {[
+              "Generate a study notes plan for me",
               "Plan my tasks for this week",
-              "Help me focus",
-              "Brainstorm startup ideas"
+              "Brainstorm startup ideas",
+              "Start a focus session for 25 minutes"
             ].map((suggestion) => (
               <button
                 key={suggestion}

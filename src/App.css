@@ -11,29 +11,66 @@ body {
   overflow-x: hidden;
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
+.app.dragging-note {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+/* Top Controls (New Chat & Theme Toggle) */
+.top-controls {
   position: fixed;
   top: 24px;
+  left: 24px;
   right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   z-index: 1000;
+}
+
+.new-chat-btn,
+.theme-toggle {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
-  padding: 12px;
+  padding: 10px 16px;
   cursor: pointer;
   color: var(--text-primary);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
+.new-chat-btn:hover,
 .theme-toggle:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
   background: var(--accent-primary);
   color: var(--bg-primary);
+  box-shadow: 0 4px 20px rgba(var(--accent-primary-rgb), 0.3);
+}
+
+.new-chat-btn span {
+  display: inline-block;
+}
+
+/* Redefine theme-toggle specifically if needed to override previous simple fixed positioning */
+.theme-toggle {
+  position: relative;
+  top: auto;
+  right: auto;
+}
+
+.logo.clickable {
+  cursor: pointer;
+}
+
+.logo.clickable:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 .bg-gradient {
