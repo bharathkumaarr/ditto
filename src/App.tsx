@@ -352,7 +352,8 @@ function App() {
               "Generate a study notes plan for me",
               "Plan my tasks for this week",
               "Brainstorm startup ideas",
-              "Start a focus session for 25 minutes"
+              "Start a focus session for 25 minutes",
+              "Set a 2 minute timer for boiling eggs"
             ].map((suggestion) => (
               <button
                 key={suggestion}

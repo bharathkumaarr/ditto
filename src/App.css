@@ -26,10 +26,14 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  pointer-events: none;
+  /* Let clicks pass through to header in the middle */
 }
 
 .new-chat-btn,
 .theme-toggle {
+  pointer-events: auto;
+  /* Re-enable for buttons */
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
