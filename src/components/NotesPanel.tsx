@@ -48,6 +48,21 @@ export function NotesPanel({ title, notes }: NotesPanelProps) {
                             animate={{ opacity: 1, scale: 1, rotate: 0 }}
                             transition={{ delay: index * 0.1 }}
                             whileHover={{ scale: 1.02, rotate: 1 }}
+                            whileDrag={{ scale: 1.1, rotate: 5, zIndex: 1000 }}
+                            drag
+                            dragSnapToOrigin
+                            onDragStart={() => {
+                                window.dispatchEvent(new CustomEvent('noteDragStart', { detail: { id: note.id } }))
+                            }}
+                            onDragEnd={(_, info) => {
+                                window.dispatchEvent(new CustomEvent('noteDragEnd', {
+                                    detail: {
+                                        id: note.id,
+                                        content: note.content,
+                                        point: info.point
+                                    }
+                                }))
+                            }}
                         >
                             <p className="note-content">{note.content}</p>
                         </motion.div>

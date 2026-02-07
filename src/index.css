@@ -11,6 +11,7 @@
   --text-primary: #161616;
   --text-secondary: #4a4a4a;
   --accent-primary: #d4a574;
+  --accent-primary-rgb: 212, 165, 116;
   --accent-secondary: #c9a86c;
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.1);
@@ -27,6 +28,7 @@
   --text-primary: #ffffff;
   --text-secondary: #a0a0a0;
   --accent-primary: #d4a574;
+  --accent-primary-rgb: 212, 165, 116;
   --accent-secondary: #c9a86c;
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);

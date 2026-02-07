@@ -256,6 +256,119 @@
   color: var(--text-secondary);
 }
 
+.shortcut-hint-prefix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: 0.5;
+}
+
+.command-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-right: 8px;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.input-container:focus-within .command-hint {
+  opacity: 0.3;
+  transform: scale(0.95);
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.2) rotate(15deg);
+    filter: hue-rotate(90deg);
+  }
+}
+
+.sparkle {
+  animation: sparkle 1s ease-in-out infinite;
+  color: var(--accent-primary) !important;
+}
+
+/* Transformation Zone */
+.transformation-zone {
+  position: fixed;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 500px;
+  height: 120px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 2px dashed var(--glass-border);
+  border-radius: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.transformation-zone.active {
+  border-color: var(--accent-primary);
+  border-style: solid;
+  background: rgba(var(--accent-primary-rgb), 0.1);
+  box-shadow: 0 0 40px rgba(var(--accent-primary-rgb), 0.3);
+  transform: translateX(-50%) scale(1.05);
+}
+
+.zone-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+}
+
+.zone-icon {
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.zone-text h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.zone-text p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.zone-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(var(--accent-primary-rgb), 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 .submit-btn {
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   border: none;
