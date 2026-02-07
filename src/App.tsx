@@ -41,21 +41,14 @@ function App() {
 
       {/* Header */}
       <header className="header">
-        <div className="logo-container">
-          <motion.div
-            className="logo"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <Sparkles className="logo-icon" />
-            <span>ditto</span>
-          </motion.div>
-          <div className="logo-tooltip">
-            <span className="tooltip-title">🚀 Built with Tambo AI</span>
-            <span className="tooltip-subtitle">Generative UI • Version 1.0</span>
-          </div>
-        </div>
+        <motion.div
+          className="logo"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <Sparkles className="logo-icon" />
+          <span>ditto</span>
+        </motion.div>
         <p className="tagline">The UI that builds itself</p>
       </header>
 
