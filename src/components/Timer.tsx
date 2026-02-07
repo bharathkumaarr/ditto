@@ -90,44 +90,53 @@ export function Timer({
 
             <div className="timer-display">
                 <div className="time-unit">
-                    <AnimatePresence mode="popLayout">
-                        <motion.span
-                            key={hrs}
-                            initial={{ y: 10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                        >
-                            {hrs}
-                        </motion.span>
-                    </AnimatePresence>
+                    <div className="digit-container">
+                        <AnimatePresence initial={false}>
+                            <motion.span
+                                key={hrs}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: -20, opacity: 0 }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                            >
+                                {hrs}
+                            </motion.span>
+                        </AnimatePresence>
+                    </div>
                     <span className="unit-label">H</span>
                 </div>
                 <span className="separator">:</span>
                 <div className="time-unit">
-                    <AnimatePresence mode="popLayout">
-                        <motion.span
-                            key={mins}
-                            initial={{ y: 10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                        >
-                            {mins}
-                        </motion.span>
-                    </AnimatePresence>
+                    <div className="digit-container">
+                        <AnimatePresence initial={false}>
+                            <motion.span
+                                key={mins}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: -20, opacity: 0 }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                            >
+                                {mins}
+                            </motion.span>
+                        </AnimatePresence>
+                    </div>
                     <span className="unit-label">M</span>
                 </div>
                 <span className="separator">:</span>
                 <div className="time-unit">
-                    <AnimatePresence mode="popLayout">
-                        <motion.span
-                            key={secs}
-                            initial={{ y: 10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -10, opacity: 0 }}
-                        >
-                            {secs}
-                        </motion.span>
-                    </AnimatePresence>
+                    <div className="digit-container">
+                        <AnimatePresence initial={false}>
+                            <motion.span
+                                key={secs}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: -20, opacity: 0 }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                            >
+                                {secs}
+                            </motion.span>
+                        </AnimatePresence>
+                    </div>
                     <span className="unit-label">S</span>
                 </div>
             </div>
