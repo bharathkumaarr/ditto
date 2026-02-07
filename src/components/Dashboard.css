@@ -1,18 +1,19 @@
 .dashboard {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
     border-radius: 16px;
     padding: 24px;
     width: 100%;
     max-width: 800px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-title {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 24px;
-    background: linear-gradient(135deg, #d4a574, #c9a86c);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -26,8 +27,8 @@
 }
 
 .metric-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 16px;
     display: flex;
@@ -37,13 +38,13 @@
 
 .metric-label {
     font-size: 0.875rem;
-    color: #888;
+    color: var(--text-secondary);
 }
 
 .metric-value {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .metric-change {
@@ -62,7 +63,7 @@
 }
 
 .chart-container {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--glass-bg);
     border-radius: 12px;
     padding: 16px;
 }

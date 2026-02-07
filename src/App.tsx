@@ -125,6 +125,21 @@ function App() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Loading indicator */}
+        {isPending && (
+          <motion.div
+            className="loading-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="loading-spinner">
+              <Loader2 className="spin" size={40} />
+            </div>
+            <p className="loading-text">Generating your UI...</p>
+          </motion.div>
+        )}
       </main>
 
       {/* Intent input - always visible */}
