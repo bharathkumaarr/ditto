@@ -10,6 +10,7 @@ function App() {
   const [isOverDropZone, setIsOverDropZone] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const dropZoneRef = useRef<HTMLDivElement>(null)
+  const scrollEndRef = useRef<HTMLDivElement>(null)
   const { thread } = useTamboThread()
   const { value, setValue, submit, isPending } = useTamboThreadInput()
 
@@ -103,6 +104,13 @@ function App() {
       submit()
     }
   }
+
+  // Auto-scroll logic
+  useEffect(() => {
+    if (thread?.messages?.length || isPending) {
+      scrollEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [thread?.messages?.length, isPending])
 
   return (
     <div className="app">
@@ -246,6 +254,9 @@ function App() {
             <p className="loading-text">Generating your UI...</p>
           </motion.div>
         )}
+
+        {/* Scroll anchor */}
+        <div ref={scrollEndRef} style={{ height: 1, width: '100%' }} />
       </main>
 
       {/* Transformation Drop Zone */}
