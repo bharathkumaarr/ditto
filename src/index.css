@@ -14,11 +14,14 @@
   --accent-primary-rgb: 212, 165, 116;
   --accent-secondary: #c9a86c;
   --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.1);
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --gradient-1: rgba(210, 180, 140, 0.15);
-  --gradient-2: rgba(245, 222, 179, 0.1);
-  --gradient-3: rgba(222, 184, 135, 0.05);
+  /* Depth Tokens */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.2);
+  --inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --inner-depth: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.4);
 }
 
 /* Dark theme */
@@ -30,12 +33,20 @@
   --accent-primary: #d4a574;
   --accent-primary-rgb: 212, 165, 116;
   --accent-secondary: #c9a86c;
-  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --gradient-1: rgba(210, 180, 140, 0.15);
-  --gradient-2: rgba(245, 222, 179, 0.1);
-  --gradient-3: rgba(222, 184, 135, 0.05);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --gradient-1: rgba(210, 180, 140, 0.12);
+  --gradient-2: rgba(245, 222, 179, 0.08);
+  --gradient-3: rgba(222, 184, 135, 0.04);
+
+  /* Depth Tokens Dark */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
+  --inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --inner-depth: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Text selection */

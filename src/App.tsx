@@ -355,9 +355,9 @@ function App() {
             <span className="suggestion-label">Try:</span>
             {[
               "Generate a study notes plan for me",
-              "Plan my tasks for this week",
-              "Brainstorm startup ideas",
-              "Start a focus session for 25 minutes",
+              "Check how ready my startup idea for a coffee delivery drone is",
+              "Generate a pitch for a SaaS that automates git commits",
+              "Prioritize these tasks: fixing bugs, hiring, marketing, and sleep",
               "Set a 2 minute timer for boiling eggs"
             ].map((suggestion) => (
               <button

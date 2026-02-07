@@ -1,0 +1,122 @@
+.pitch-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 28px;
+    padding: 40px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: var(--shadow-xl);
+    box-shadow: var(--inner-highlight);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.pitch-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pitch-badge {
+    background: var(--glass-bg);
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.pitch-title {
+    margin: 0;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.pitch-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.pitch-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-primary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pitch-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.section-text {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.pitch-footer {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.pitch-btn {
+    padding: 12px 24px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.pitch-btn.primary {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    border: none;
+}
+
+.pitch-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(var(--accent-primary-rgb), 0.3);
+}
+
+.pitch-btn.secondary {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+}
+
+.pitch-btn.secondary:hover {
+    background: var(--glass-bg-hover);
+}
+
+@media (max-width: 650px) {
+    .pitch-content {
+        grid-template-columns: 1fr;
+    }
+}

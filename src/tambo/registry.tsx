@@ -6,6 +6,9 @@ import { TaskTracker } from '../components/TaskTracker'
 import { FocusMode } from '../components/FocusMode'
 import { NotesPanel } from '../components/NotesPanel'
 import { Timer } from '../components/Timer'
+import { ReadinessScore } from '../components/ReadinessScore'
+import { PitchGenerator } from '../components/PitchGenerator'
+import { TaskPrioritizer } from '../components/TaskPrioritizer'
 
 // Dashboard Schema - more flexible with defaults
 const DashboardSchema = z.object({
@@ -60,6 +63,41 @@ const TimerSchema = z.object({
     label: z.string().describe('Short label for what the timer is for (e.g., "Boiling Eggs").').default('Timer')
 })
 
+// ReadinessScore Schema
+const ReadinessScoreSchema = z.object({
+    score: z.number().min(0).max(100).default(50),
+    title: z.string().default('Readiness Assessment'),
+    summary: z.string().default('Analysis of your current state.'),
+    criteria: z.array(z.object({
+        label: z.string(),
+        value: z.number().min(0).max(100),
+        reasoning: z.string().optional()
+    })).default([])
+})
+
+// PitchGenerator Schema
+const PitchGeneratorSchema = z.object({
+    title: z.string().default('Pitch Deck'),
+    hook: z.string().default(''),
+    problem: z.string().default(''),
+    solution: z.string().default(''),
+    marketSize: z.string().optional(),
+    businessModel: z.string().optional(),
+    ask: z.string().optional()
+})
+
+// TaskPrioritizer Schema
+const TaskPrioritizerSchema = z.object({
+    title: z.string().default('Prioritized Tasks'),
+    tasks: z.array(z.object({
+        id: z.string().default(() => Math.random().toString(36).substr(2, 9)),
+        title: z.string(),
+        priority: z.enum(['high', 'medium', 'low']).default('medium'),
+        impactScore: z.number().min(1).max(10).default(5),
+        reasoning: z.string().optional()
+    })).default([])
+})
+
 // Register all components
 export const dittoComponents = [
     {
@@ -91,5 +129,23 @@ export const dittoComponents = [
         description: 'Countdown timer or stopwatch. Use when the user wants to set a timer, start a countdown, use a stopwatch, or track time for an activity.',
         component: Timer,
         propsSchema: TimerSchema
+    },
+    {
+        name: 'ReadinessScore',
+        description: 'Visual readiness score/assessment. Use when users ask how ready a project, idea, or startup is for launch or investment.',
+        component: ReadinessScore,
+        propsSchema: ReadinessScoreSchema
+    },
+    {
+        name: 'PitchGenerator',
+        description: 'Structured business pitch generator. Use when users want an elevator pitch, pitch deck content, or a summary of their business idea.',
+        component: PitchGenerator,
+        propsSchema: PitchGeneratorSchema
+    },
+    {
+        name: 'TaskPrioritizer',
+        description: 'Advanced task prioritization board. Use when users have multiple tasks and need to know what to do first based on impact and priority.',
+        component: TaskPrioritizer,
+        propsSchema: TaskPrioritizerSchema
     }
 ]
