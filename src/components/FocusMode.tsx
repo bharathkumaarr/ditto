@@ -24,22 +24,33 @@ export function FocusMode({ title, breathingPattern, color = 'purple' }: FocusMo
     const [countdown, setCountdown] = useState(pattern.inhale)
     const theme = colorThemes[color]
 
+    // Reset when pattern or initial props change
+    useEffect(() => {
+        setPhase('inhale')
+        setCountdown(pattern.inhale)
+    }, [breathingPattern])
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCountdown(prev => {
                 if (prev <= 1) {
-                    setPhase(currentPhase => {
-                        if (currentPhase === 'inhale') {
-                            return 'hold'
-                        } else if (currentPhase === 'hold') {
-                            return 'exhale'
-                        } else {
-                            return 'inhale'
-                        }
-                    })
-                    if (phase === 'inhale') return pattern.hold
-                    if (phase === 'hold') return pattern.exhale
-                    return pattern.inhale
+                    // We need to switch phase AND get the new duration
+                    let nextPhase: 'inhale' | 'hold' | 'exhale'
+                    let nextDuration: number
+
+                    if (phase === 'inhale') {
+                        nextPhase = 'hold'
+                        nextDuration = pattern.hold
+                    } else if (phase === 'hold') {
+                        nextPhase = 'exhale'
+                        nextDuration = pattern.exhale
+                    } else {
+                        nextPhase = 'inhale'
+                        nextDuration = pattern.inhale
+                    }
+
+                    setPhase(nextPhase)
+                    return nextDuration
                 }
                 return prev - 1
             })
