@@ -1,11 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTamboThread, useTamboThreadInput } from '@tambo-ai/react'
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
-import { Sparkles, Send, Loader2, Sun, Moon, Command, Wand2, Plus } from 'lucide-react'
+import { Sparkles, Send, Loader2, Sun, Moon, Command, Wand2, Plus, LogOut } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
+import { useAuth } from './contexts/AuthContext'
+import { LoginScreen } from './components/LoginScreen'
 import './App.css'
 
 function App() {
+  const { user, loading, signOut, isConfigured } = useAuth()
+
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const [isDraggingNote, setIsDraggingNote] = useState(false)
   const [isOverDropZone, setIsOverDropZone] = useState(false)
@@ -122,6 +126,20 @@ function App() {
     }
   }, [thread?.messages?.length, isPending])
 
+  // Show loading spinner while checking auth
+  if (loading) {
+    return (
+      <div className="app loading-screen">
+        <Loader2 size={48} className="spin" />
+      </div>
+    )
+  }
+
+  // Show login screen if not authenticated (only if Firebase is configured)
+  if (isConfigured && !user) {
+    return <LoginScreen />
+  }
+
   return (
     <div className={`app ${isDraggingNote ? 'dragging-note' : ''}`}>
       {/* Background gradient */}
@@ -138,13 +156,38 @@ function App() {
           <span>New Chat</span>
         </button>
 
-        <button
-          className="theme-toggle"
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-        </button>
+        <div className="top-controls-right">
+          {user && (
+            <div className="user-menu">
+              {user.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="User"
+                  className="user-avatar"
+                />
+
+              ) : (
+                <div className="user-avatar-placeholder">
+                  {user.isAnonymous ? 'G' : (user.displayName?.[0] || 'U')}
+                </div>
+              )}
+              <button
+                className="logout-btn"
+                onClick={signOut}
+                aria-label="Sign out"
+              >
+                <LogOut size={18} />
+              </button>
+            </div>
+          )}
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          >
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+        </div>
       </div>
 
       {/* Header */}

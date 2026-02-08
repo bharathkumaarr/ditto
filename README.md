@@ -57,6 +57,7 @@ Describe what you need in plain English, and Ditto generates fully functional, s
 - Node.js 18+ 
 - npm or yarn
 - A [Tambo AI](https://tambo.ai/) API key
+- A [Firebase](https://firebase.google.com/) project (free tier)
 
 ### Installation
 
@@ -71,23 +72,39 @@ Describe what you need in plain English, and Ditto generates fully functional, s
    npm install
    ```
 
-3. **Set up environment variables**
+3. **Set up Firebase (for authentication)**
+   
+   - Go to [Firebase Console](https://console.firebase.google.com/)
+   - Create a new project
+   - Go to **Authentication** → **Sign-in method**
+   - Enable **Google** and **Anonymous** providers
+   - Go to **Project Settings** → Copy your config values
+
+4. **Set up environment variables**
    
    Create a `.env` file in the root directory:
    ```env
-   VITE_TAMBO_API_KEY=your_tambo_api_key_here
-   ```
+   # Tambo AI
+   VITE_TAMBO_API_KEY=your_tambo_api_key
    
-   > 🔑 **Get your API key:** Sign up at [tambo.ai](https://tambo.ai/) and create a new project to get your API key.
+   # Firebase
+   VITE_FIREBASE_API_KEY=your_firebase_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=your_project_id
+   VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+   VITE_FIREBASE_APP_ID=your_app_id
+   ```
 
-4. **Start the development server**
+5. **Start the development server**
    ```bash
    npm run dev
    ```
 
-5. **Open your browser**
+6. **Open your browser**
    
    Navigate to `http://localhost:5173`
+
 
 ---
 
