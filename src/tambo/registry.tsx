@@ -9,6 +9,8 @@ import { Timer } from '../components/Timer'
 import { ReadinessScore } from '../components/ReadinessScore'
 import { PitchGenerator } from '../components/PitchGenerator'
 import { TaskPrioritizer } from '../components/TaskPrioritizer'
+import { LiveChart } from '../components/LiveChart'
+
 
 // Dashboard Schema - more flexible with defaults
 const DashboardSchema = z.object({
@@ -98,6 +100,14 @@ const TaskPrioritizerSchema = z.object({
     })).default([])
 })
 
+// LiveChart Schema
+const LiveChartSchema = z.object({
+    symbol: z.string().describe('The ticker symbol or name of the asset (e.g., "bitcoin", "BTC", "ethereum", "ETH", "S&P500", "AAPL", "Tesla").'),
+    name: z.string().describe('Display name for the asset (e.g., "Bitcoin", "Ethereum", "S&P 500 Index", "Apple Inc.").'),
+    type: z.enum(['crypto', 'stock']).describe('Type of asset - crypto for cryptocurrencies (real-time data) or stock for stocks/indices (simulated data).')
+})
+
+
 // Register all components
 export const dittoComponents = [
     {
@@ -147,5 +157,11 @@ export const dittoComponents = [
         description: 'Advanced task prioritization board. Use when users have multiple tasks and need to know what to do first based on impact and priority.',
         component: TaskPrioritizer,
         propsSchema: TaskPrioritizerSchema
+    },
+    {
+        name: 'LiveChart',
+        description: 'Live price chart for cryptocurrencies and stocks. Use when user wants to see Bitcoin price, ETH chart, cryptocurrency prices, stock charts, S&P 500, Dow Jones, or any live market data. Supports real-time crypto data (BTC, ETH, SOL, DOGE) and simulated stock data.',
+        component: LiveChart,
+        propsSchema: LiveChartSchema
     }
 ]

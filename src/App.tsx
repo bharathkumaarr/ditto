@@ -398,12 +398,14 @@ function App() {
           <div className="suggestions">
             <span className="suggestion-label">Try:</span>
             {[
+              "Show me live Bitcoin chart",
+              "Show Tesla stock price",
               "Generate a study notes plan for me",
               "Check how ready my startup idea for a coffee delivery drone is",
-              "Generate a pitch for a SaaS that automates git commits",
               "Prioritize these tasks: fixing bugs, hiring, marketing, and sleep",
               "Set a 2 minute timer for boiling eggs"
             ].map((suggestion) => (
+
               <button
                 key={suggestion}
                 type="button"
