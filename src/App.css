@@ -98,6 +98,8 @@ body {
   border-radius: 24px;
   padding: 6px 12px 6px 6px;
   backdrop-filter: blur(10px);
+  pointer-events: auto;
+  /* Re-enable clicks */
 }
 
 .user-avatar {
@@ -128,6 +130,8 @@ body {
   cursor: pointer;
   padding: 4px;
   display: flex;
+  pointer-events: auto;
+  /* Re-enable clicks */
   align-items: center;
   justify-content: center;
   transition: color 0.2s ease;
