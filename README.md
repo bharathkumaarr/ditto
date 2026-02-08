@@ -2,31 +2,31 @@
 
 A generative AI-powered application that creates interactive UI components on the fly based on natural language prompts. Built with React, TypeScript, and the Tambo AI SDK.
 
-**🚀 Live Demo:** [ditto-theta.vercel.app](https://ditto-theta.vercel.app)
+**Live Demo:** [ditto-theta.vercel.app](https://ditto-theta.vercel.app)
 
 ---
 
-## ⚡ Features
+## Features
 
-### 🎨 AI-Powered Component Generation
+### AI-Powered Component Generation
 Describe what you need in plain English, and Ditto generates fully functional, styled components:
 
-- **📊 Dashboard** - Analytics with metrics and charts
-- **✅ Task Tracker** - Kanban board with drag-and-drop
-- **📝 Notes Panel** - Sticky notes with drag-to-workflow transformation
-- **⏱️ Timer** - Countdown timer and stopwatch with beautiful digit animations
-- **🧘 Focus Mode** - Guided breathing exercises with visual feedback
-- **📈 Readiness Score** - Visual assessment gauge for project/startup readiness
-- **🎤 Pitch Generator** - Structured business pitch deck content
-- **🎯 Task Prioritizer** - AI-powered task ranking by impact
+- **Dashboard** - Analytics with metrics and charts
+- **Task Tracker** - Kanban board with drag-and-drop
+- **Notes Panel** - Sticky notes with drag-to-workflow transformation
+- **⏱Timer** - Countdown timer and stopwatch with beautiful digit animations
+- **Focus Mode** - Guided breathing exercises with visual feedback
+- **Readiness Score** - Visual assessment gauge for project/startup readiness
+- **Pitch Generator** - Structured business pitch deck content
+- **Task Prioritizer** - AI-powered task ranking by impact
 
-### 🎭 Premium Design System
+### Premium Design System
 - **Visual Realism**: Multi-layered shadows, glassmorphism, and depth effects
 - **Smooth Animations**: Powered by Framer Motion
 - **Dark/Light Themes**: Toggle with `Alt + T`
 - **Fully Responsive**: Works beautifully on mobile, tablet, and desktop
 
-### ⌨️ Keyboard Shortcuts
+### Keyboard Shortcuts
 | Shortcut | Action |
 |----------|--------|
 | `⌘/Ctrl + K` or `/` | Focus input |
@@ -35,7 +35,7 @@ Describe what you need in plain English, and Ditto generates fully functional, s
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -50,7 +50,7 @@ Describe what you need in plain English, and Ditto generates fully functional, s
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -91,7 +91,7 @@ Describe what you need in plain English, and Ditto generates fully functional, s
 
 ---
 
-## 📜 Available Scripts
+## Available Scripts
 
 | Command | Description |
 |---------|-------------|
@@ -102,7 +102,7 @@ Describe what you need in plain English, and Ditto generates fully functional, s
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ditto/
@@ -128,7 +128,7 @@ ditto/
 
 ---
 
-## 🎯 Usage Examples
+## Usage Examples
 
 Try these prompts in the app:
 
@@ -141,7 +141,7 @@ Try these prompts in the app:
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 This project is deployed on **Vercel**. To deploy your own instance:
 
@@ -152,18 +152,18 @@ This project is deployed on **Vercel**. To deploy your own instance:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
 <p align="center">
-  Made with ❤️ and AI
+  Made with ❤️ by <a href="https://github.com/bharathkumaarr">Bharath Kumar</a> and <a href="https://github.com/Mithi-07">Mithilesh</a>
 </p>
