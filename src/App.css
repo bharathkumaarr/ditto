@@ -27,7 +27,14 @@ body {
   align-items: center;
   z-index: 1000;
   pointer-events: none;
-  /* Let clicks pass through to header in the middle */
+}
+
+@media (max-width: 640px) {
+  .top-controls {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+  }
 }
 
 .new-chat-btn,
@@ -61,6 +68,19 @@ body {
 
 .new-chat-btn span {
   display: inline-block;
+}
+
+@media (max-width: 640px) {
+
+  .new-chat-btn,
+  .theme-toggle {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .new-chat-btn span {
+    display: none;
+  }
 }
 
 /* Redefine theme-toggle specifically if needed to override previous simple fixed positioning */
@@ -122,6 +142,12 @@ body {
   transition: transform 0.2s ease;
 }
 
+@media (max-width: 640px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
 .logo-icon {
   color: var(--accent-primary);
 }
@@ -169,6 +195,12 @@ body {
   font-size: 0.875rem;
 }
 
+@media (max-width: 640px) {
+  .tagline {
+    font-size: 0.75rem;
+  }
+}
+
 /* Hero Section */
 .hero-section {
   flex: 1;
@@ -195,6 +227,26 @@ body {
   font-size: 1.125rem;
 }
 
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-section {
+    padding: 20px;
+  }
+}
+
 /* Main Content */
 .main-content {
   flex: 1;
@@ -213,6 +265,19 @@ body {
   flex-direction: column;
   gap: 24px;
   padding: 24px 0;
+}
+
+@media (max-width: 640px) {
+  .main-content {
+    padding: 0 16px;
+    padding-bottom: 240px;
+    /* More space for wrapped suggestions */
+  }
+
+  .components-area {
+    padding: 16px 0;
+    gap: 16px;
+  }
 }
 
 .message-container {
@@ -277,6 +342,15 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
+}
+
+@media (max-width: 480px) {
+
+  .ai-text ol,
+  .ai-text ul {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }
 
 .ai-text li {
@@ -436,8 +510,13 @@ body {
 }
 
 .input-container:focus-within .command-hint {
-  opacity: 0.3;
   transform: scale(0.95);
+}
+
+@media (max-width: 640px) {
+  .command-hint {
+    display: none;
+  }
 }
 
 @keyframes sparkle {
@@ -543,6 +622,12 @@ body {
 .submit-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .submit-btn {
+    padding: 10px 14px;
+  }
 }
 
 .spin {

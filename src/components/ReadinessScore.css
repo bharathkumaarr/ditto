@@ -10,11 +10,25 @@
     box-shadow: var(--inner-highlight);
 }
 
+@media (max-width: 480px) {
+    .readiness-card {
+        padding: 20px;
+    }
+}
+
 .readiness-header {
     display: flex;
     align-items: center;
     gap: 24px;
     margin-bottom: 32px;
+}
+
+@media (max-width: 480px) {
+    .readiness-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
 }
 
 .score-gauge-container {
