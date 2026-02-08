@@ -103,6 +103,7 @@ function App() {
     e.preventDefault()
     if (value.trim() && !isPending) {
       submit()
+      setValue('')
     }
   }
 
