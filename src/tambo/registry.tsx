@@ -102,10 +102,11 @@ const TaskPrioritizerSchema = z.object({
 
 // LiveChart Schema
 const LiveChartSchema = z.object({
-    symbol: z.string().describe('The ticker symbol or name of the asset (e.g., "bitcoin", "BTC", "ethereum", "ETH", "S&P500", "AAPL", "Tesla").'),
-    name: z.string().describe('Display name for the asset (e.g., "Bitcoin", "Ethereum", "S&P 500 Index", "Apple Inc.").'),
-    type: z.enum(['crypto', 'stock']).describe('Type of asset - crypto for cryptocurrencies (real-time data) or stock for stocks/indices (simulated data).')
+    symbol: z.string().describe('The ticker symbol or name of the asset (e.g., "bitcoin", "BTC", "ethereum", "ETH", "S&P500", "AAPL", "Tesla").').default('bitcoin'),
+    name: z.string().describe('Display name for the asset (e.g., "Bitcoin", "Ethereum", "S&P 500 Index", "Apple Inc.").').default('Bitcoin'),
+    type: z.enum(['crypto', 'stock']).describe('Type of asset - crypto for cryptocurrencies (real-time data) or stock for stocks/indices (simulated data).').default('crypto')
 })
+
 
 
 // Register all components

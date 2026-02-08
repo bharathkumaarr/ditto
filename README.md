@@ -19,6 +19,12 @@ Describe what you need in plain English, and Ditto generates fully functional, s
 - **Readiness Score** - Visual assessment gauge for project/startup readiness
 - **Pitch Generator** - Structured business pitch deck content
 - **Task Prioritizer** - AI-powered task ranking by impact
+- **📈 LiveChart** - Real-time cryptocurrency & stock price charts
+
+### Authentication
+- **Google Sign-In** - Secure OAuth authentication
+- **Guest Mode** - Continue as guest without signing up
+- **User Profile** - Avatar display and logout functionality
 
 ### Premium Design System
 - **Visual Realism**: Multi-layered shadows, glassmorphism, and depth effects
@@ -43,9 +49,11 @@ Describe what you need in plain English, and Ditto generates fully functional, s
 | [TypeScript](https://www.typescriptlang.org/) | Type Safety |
 | [Vite](https://vitejs.dev/) | Build Tool & Dev Server |
 | [Tambo AI](https://tambo.ai/) | Generative UI SDK |
+| [Firebase](https://firebase.google.com/) | Authentication |
 | [Framer Motion](https://www.framer.com/motion/) | Animations |
 | [Lucide React](https://lucide.dev/) | Icons |
 | [Recharts](https://recharts.org/) | Data Visualization |
+| [CoinGecko API](https://www.coingecko.com/en/api) | Live Crypto Prices (Free) |
 | [Zod](https://zod.dev/) | Schema Validation |
 
 ---
@@ -132,7 +140,14 @@ ditto/
 │   │   ├── FocusMode.tsx
 │   │   ├── ReadinessScore.tsx
 │   │   ├── PitchGenerator.tsx
-│   │   └── TaskPrioritizer.tsx
+│   │   ├── TaskPrioritizer.tsx
+│   │   ├── LiveChart.tsx      # Real-time price charts
+│   │   └── LoginScreen.tsx    # Authentication UI
+│   ├── contexts/
+│   │   └── AuthContext.tsx    # Authentication state
+│   ├── firebase/
+│   │   ├── config.ts          # Firebase initialization
+│   │   └── auth.ts            # Auth functions
 │   ├── tambo/
 │   │   └── registry.tsx    # Component registry for AI
 │   ├── App.tsx             # Main application
@@ -155,6 +170,9 @@ Try these prompts in the app:
 - *"Analyze if my startup idea is ready for funding"*
 - *"Generate a pitch for my food delivery app"*
 - *"Prioritize my tasks for today"*
+- *"Show me live Bitcoin chart"* 📈
+- *"Display Ethereum price"* 📈
+- *"Show Tesla stock price"* 📈 (simulated)
 
 ---
 
@@ -164,8 +182,24 @@ This project is deployed on **Vercel**. To deploy your own instance:
 
 1. Push your code to GitHub
 2. Connect your repository to [Vercel](https://vercel.com/)
-3. Add the `VITE_TAMBO_API_KEY` environment variable in Vercel settings
+3. Add environment variables in Vercel settings:
+   - `VITE_TAMBO_API_KEY`
+   - `VITE_FIREBASE_API_KEY`
+   - `VITE_FIREBASE_AUTH_DOMAIN`
+   - `VITE_FIREBASE_PROJECT_ID`
+   - `VITE_FIREBASE_STORAGE_BUCKET`
+   - `VITE_FIREBASE_MESSAGING_SENDER_ID`
+   - `VITE_FIREBASE_APP_ID`
 4. Deploy!
+
+---
+
+## Live Data APIs
+
+| Data Type | API | Cost | Status |
+|-----------|-----|------|--------|
+| Crypto (BTC, ETH, SOL) | [CoinGecko](https://www.coingecko.com/en/api) | Free | ✅ Live |
+| Stocks (TSLA, AAPL, etc.) | Simulated | Free | 📊 Simulated |
 
 ---
 
